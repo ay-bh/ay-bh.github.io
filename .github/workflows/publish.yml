@@ -1,4 +1,9 @@
 name: publish-to-github-pages
+
+# Force Node.js 20
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE20: true
+
 on:
   push:
     branches:
