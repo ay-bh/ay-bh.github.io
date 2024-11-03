@@ -1,8 +1,8 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Ayush Bhardwaj',
+  title: 'ay-bh',
   author: 'Ayush Bhardwaj',
-  headerTitle: 'ay-bh',
+  headerTitle: 'Ayush Bhardwaj',
   description: 'My debug console for life and learning',
   language: 'en-us',
   theme: 'system', // system, dark or light
