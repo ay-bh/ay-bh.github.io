@@ -1,0 +1,149 @@
+---
+title: 'GSoC 2024 Contributions - INCF (LORIS)'
+date: '2024-08-15'
+tags: ['GSoC', 'INCF', 'LORIS', 'Submission', 'Neuroinformatics']
+draft: false
+summary: Detailed overview of contributions to the LORIS project during Google Summer of Code 2024.
+---
+
+# GSoC 2024 Contributions - INCF (LORIS)
+
+- **Contributor:** Ayush Bhardwaj
+- **Organization:** [INCF - International Neuroinformatics Coordinating Facility](https://www.incf.org/)
+- **Project:** Contribute to [LORIS](https://loris.ca/)
+- **Mentors:** Christine Rogers, Rolando Acosta
+
+## Project Description
+
+LORIS (Longitudinal Online Research and Imaging System) is an open-source, web-based data management software for neuroimaging research. It specializes in storing and processing behavioral, clinical, neuroimaging, and genetic data, particularly for longitudinal and multi-site studies. The platform features an Issue Tracker module that enables users to submit and monitor data-related issues through a form with pre-defined fields and attachments. During Google Summer of Code 2024, I worked on enhancing the Issue Tracker module and resolving system-wide bugs to improve LORIS's functionality.
+
+## Project Goals
+
+- Enhance the Issue Tracker module with new features and improvements.
+- Improve the experience when managing issues.
+- Fix existing bugs in the LORIS codebase.
+
+## Key Accomplishments
+
+### 1. Major Feature: Batch Mode for Issue Tracker
+
+Implemented a comprehensive batch processing interface that improves how developers and coordinators manage issues:
+
+- Developed an interface for organizing issues by criteria (category, priority, status, site).
+- Reduced the number of clicks/time required to update an issue.
+- Streamlined bulk issue resolution, reducing time spent on updates.
+- Created an intuitive UI for improved issue handling.
+- Added top comments, new comment, and user assignment features.
+- Implemented permission-based access control.
+
+**Related PRs:**
+
+- [#9339](https://github.com/aces/Loris/pull/9339) - [issue_tracker] Add Batch Mode
+- [#9425](https://github.com/aces/Loris/pull/9425) - [issue_tracker] Enable editing of site, assignee and watchers in Batch Mode
+- [#9434](https://github.com/aces/Loris/pull/9434) - [issue_tracker] Convert batch/normal mode toggle to tabs and implement permission control
+
+### 2. Bug Fixes and Improvements
+
+- **Add Instrument Dropdown Selection**
+
+  - **PR:** [#9311](https://github.com/aces/Loris/pull/9311) - [issue_tracker] Add Instrument dropdown to Issue form #9311
+  - **Issue:** [#8896](https://github.com/aces/Loris/issues/8896) - Add ‘Instrument’ from a drop down of all instruments
+  - **Changes:**
+    - Added instrument selection dropdown to Issue Form.
+    - Updated database schema and migration scripts.
+    - Modified backend to handle instrument data.
+    - Enhanced UI for instrument selection.
+
+- **Fix Watching Field Persistence Bug**
+
+  - **PR:** [#9323](https://github.com/aces/Loris/pull/9323) - [issue_tracker] The "watching ?" field is taking the "no" value when an issue is updated. #9315
+  - **Issue:** [#9315](https://github.com/aces/Loris/issues/9315) - The "watching ?" field is taking the "no" value when an issue is updated.
+  - **Changes:**
+    - Fixed watching status reverting to "no" on updates.
+    - Resolved internal server errors.
+    - Updated field change tracking.
+
+- **Resolve Issue Display Error**
+
+  - **PR:** [#9367](https://github.com/aces/Loris/pull/9367) - [issue_tracker] Getting "An error occurred while loading the page." when trying to display an issue in main branch. #9366
+  - **Issue:** [#9366](https://github.com/aces/Loris/issues/9366) - Getting "An error occurred while loading the page." when trying to display an issue in main branch.
+  - **Changes:**
+    - Fixed query object iteration error.
+    - Resolved loading issues in Issue Tracker.
+    - Improved error handling.
+
+- **Add Description Field to Issues Table**
+
+  - **PR:** [#8864](https://github.com/aces/Loris/pull/8864) - [issue_tracker] Add description field to issues table #8353
+  - **Issue:** [#8353](https://github.com/aces/Loris/issues/8353) - Cannot edit description of already created issue.
+  - **Changes:**
+    - Added description field to the issue creation/modification UI.
+    - Created `update_issues_with_description.php` script to migrate existing descriptions.
+    - Updated Raisinbread SQL file accordingly.
+
+- **Update Deprecated Function Calls**
+
+  - **PR:** [#9280](https://github.com/aces/Loris/pull/9280) - [issue_tracker] Deprecated LORIS function call in recreate_conflicts.php script #9267
+  - **Issue:** [#9267](https://github.com/aces/Loris/issues/9267) - Deprecated LORIS function call in recreate_conflicts.php script
+  - **Changes:**
+    - Refactored `recreate_conflicts.php` to replace the deprecated `Utility::getAllInstruments()` function.
+
+### 3. Testing and Quality Assurance
+
+- Conducted comprehensive testing for all implemented features and bug fixes.
+- Collaborated with mentors and contributors to ensure code quality and adherence to project standards.
+- Addressed feedback from code reviews promptly, enhancing the robustness of the codebase.
+
+## Current State
+
+The project has successfully delivered its primary objectives:
+
+- **Batch Mode** is fully implemented and operational ([Issue #9268](https://github.com/aces/Loris/issues/9268)).
+- All planned bug fixes, including the addition of the description field and other enhancements, have been completed.
+
+## Remaining Work
+
+Some features are currently in progress or planned for future implementation ([Issue #9418](https://github.com/aces/Loris/issues/9418)):
+
+1. Stress testing for large numbers of issues (1k-50k).
+2. Batch closure of multiple issues.
+3. Additional UI refinements ([Issue #9423](https://github.com/aces/Loris/issues/9423)).
+4. Performance optimizations for large datasets.
+
+## Code Integration Status
+
+### Merged Pull Requests
+
+1. [#9339](https://github.com/aces/Loris/pull/9339) - [issue_tracker] Alternative view for issue hunting #9268
+2. [#9323](https://github.com/aces/Loris/pull/9323) - [issue_tracker] The "watching ?" field is taking the "no" value when an issue is updated. #9315
+3. [#9367](https://github.com/aces/Loris/pull/9367) - [issue_tracker] Getting "An error occurred while loading the page." when trying to display an issue in main branch. #9366
+4. [#9280](https://github.com/aces/Loris/pull/9280) - [issue_tracker] Deprecated LORIS function call in recreate_conflicts.php script #9267
+5. [#8864](https://github.com/aces/Loris/pull/8864) - [issue_tracker] Add description field to issues table #8353
+
+### Open Pull Requests
+
+1. [#9311](https://github.com/aces/Loris/pull/9311) - [issue_tracker] Add Instrument dropdown to Issue form #9311
+2. [#9425](https://github.com/aces/Loris/pull/9425) - [issue_tracker] Enable editing of site, assignee and watchers in Batch Mode #9425
+3. [#9434](https://github.com/aces/Loris/pull/9434) - [issue_tracker] Convert batch/normal mode toggle to tabs and implement permission control #9434
+
+## Technical Challenges and Learning
+
+Throughout this project, I encountered and overcame several technical challenges:
+
+1. **Complex State Management:** Implementing batch operations required careful consideration of state management across multiple components.
+2. **Performance Optimization:** Ensuring smooth performance while handling large numbers of issues required efficient data handling.
+3. **Permission System Integration:** Integrating with LORIS's existing permission system while adding new functionality required a deep understanding of the system architecture.
+4. **Database Schema Evolution:** Carefully updating the database schema while maintaining backward compatibility.
+5. **Collaborative Development:** Enhancing and merging contributions from other developers necessitated effective communication and collaborative problem-solving.
+
+## Key Learnings
+
+- Gained a deep understanding of LORIS architecture and development workflow.
+- Acquired hands-on experience with PHP, React, and SQL in a production environment.
+- Understood the importance of thorough testing and documentation.
+- Appreciated the value of community feedback and iterative development.
+- Enhanced skills in collaborative coding and conflict resolution during the merging process.
+
+## Acknowledgments
+
+Special thanks to my mentors and the LORIS development team for their guidance and support throughout this project. Their feedback and expertise were invaluable in delivering these improvements to the LORIS community.
