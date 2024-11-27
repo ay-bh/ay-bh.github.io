@@ -22,13 +22,13 @@ const Header = () => {
       opacity: 1,
       transition: {
         duration: 0.5,
-        ease: 'easeOut'
-      }
-    }
+        ease: 'easeOut',
+      },
+    },
   }
 
   const linkVariants = {
-    hover: { scale: 1.05, transition: { duration: 0.2 } }
+    hover: { scale: 1.05, transition: { duration: 0.2 } },
   }
 
   return (
@@ -66,7 +66,7 @@ const Header = () => {
               <Link
                 key={link.title}
                 href={link.href}
-                className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4 hover:text-primary-500 dark:hover:text-primary-400"
+                className="p-1 font-medium hover:text-primary-500 dark:text-gray-100 dark:hover:text-primary-400 sm:p-4"
               >
                 {link.title}
               </Link>
