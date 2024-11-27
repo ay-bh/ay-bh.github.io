@@ -32,6 +32,8 @@ module.exports = {
         60: '60',
         70: '70',
         80: '80',
+        50: '50',
+        999: '999',
       },
       typography: ({ theme }) => ({
         DEFAULT: {

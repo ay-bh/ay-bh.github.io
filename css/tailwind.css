@@ -58,3 +58,23 @@ input:-webkit-autofill:focus {
   display: inline-block;
   vertical-align: middle;
 }
+
+@layer utilities {
+  .cursor-none {
+    cursor: none;
+  }
+}
+
+/* Hide default cursor on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  body, a, button, input, textarea, select {
+    @apply cursor-none !important;
+  }
+}
+
+/* Hide custom cursor on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .custom-cursor {
+    @apply hidden;
+  }
+}
